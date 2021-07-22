@@ -16,7 +16,7 @@ const standaloneAsciiRegex = /[ -~]+(?!\ufe0f)/g
 // should ideally be named "hasEmojiComponents" but for brevity it is hasEmoji
 // returns true if str has 1 or more emoji components, else false
 function hasEmojis(str) { 
-    return !!removeStandaloneAscii(str).match(emojiRegex)
+    return !!(removeStandaloneAscii(str).match(emojiRegex).join(""))
 }
 
 // returns true if str has no emoji components, else false
