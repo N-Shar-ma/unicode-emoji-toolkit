@@ -2,58 +2,56 @@ module.exports = {
     hasEmojis,
     hasNoEmojis,
     hasOnlyEmojis,
-    removeEmojis, // todo
-    removeNonEmojis // todo
+    removeEmojis,
+    removeNonEmojis
 }
 
+// matches all emoji components including digits, # and *
 const emojiRegex = /((\p{Emoji})|(\p{Emoji_Presentation})|(\p{Emoji_Modifier})|(\p{Emoji_Modifier_Base})|(\p{Emoji_Component})|(\p{Extended_Pictographic}))*/gu
-// const nonEmojiRegex = new RegExp("^("+emojiRegex.source+")")
-const asciiRegex = /[ -~]+/g
-const standaloneAsciiRegex = /[ -~]+(?!\ufe0f)/g // matches ascii when not as emoji components
 
-function hasEmojis(str) { // works, language agnostic
+// matches ascii when not as emoji components
+const standaloneAsciiRegex = /[ -~]+(?!\ufe0f)/g 
+
+
+// should ideally be named "hasEmojiComponents" but for brevity it is hasEmoji
+// returns true if str has 1 or more emoji components, else false
+function hasEmojis(str) { 
     return !!removeStandaloneAscii(str).match(emojiRegex)
 }
 
-function hasNoEmojis(str) { // works, language agnostic
+// returns true if str has no emoji components, else false
+function hasNoEmojis(str) { 
     return !hasEmojis(str)
 }
 
-function hasOnlyEmojis(str) { // works. but hacky, not thoroughly tested
-    if(hasStandaloneAscii(str)) return false
-    const emojiremovedStr = str.split(emojiRegex).map(c => c ? c : "").join("").trim()
-    console.log(emojiremovedStr)
-    return emojiremovedStr.length===0 || emojiremovedStr.length===2 ? true : false
+// returns true if str only has emoji components, else false
+function hasOnlyEmojis(str) { 
+    return (removeNonEmojis(str) === str)
 }
 
-// function hasAsciiOnlyAsEmoji(str) { // works
-//     return !str.match(standaloneAsciiRegex)
-// }
-
-function hasStandaloneAscii(str) { // works
-    return !!str.match(standaloneAsciiRegex)
+// returns a string removing all emoji components from str, and retaining only its non emoji components
+function removeEmojis(str) { 
+    const emojis = removeNonEmojis(str).split("")
+    const strArr = str.split("")
+    return strArr.filter((c,i) => !emojis.includes(c) || (i<strArr.length-1 && c.match(standaloneAsciiRegex) && strArr[i+1]!=="\ufe0f")).join("")
 }
 
-function removeStandaloneAscii(str) { // works
+// returns a string removing all non emoji components from str, and retaining only its emoji components
+function removeNonEmojis(str) { 
+    return removeStandaloneAscii(str).match(emojiRegex).join("")
+}
+
+// returns a string removing all standalone ascii characters (not those as emoji components)
+function removeStandaloneAscii(str) { // util
     return str.replace(standaloneAsciiRegex, "");
 }
 
-function hasNoEmojis(str) {
-    return (str !== removeEmojis(str))
-}
+// testing
 
-function removeEmojis(str) { // todo
-    // console.log(str.length)
-}
+// const s1 = "🆗❤🧡💛💲💚💝💜1️⃣"
+// const s2 = "हिन्दी1💜#31️⃣में"
 
-function removeNonEmojis(str) { // half-done, works for common english
-    const asciiLessStr = removeStandaloneAscii(str)
-    return asciiLessStr
-}
-
-// testing 1💜#1️⃣💲 "हिन्दी में ..."
-
-const s1 = "🆗❤🧡💛💚💝💜1️⃣"
-
-console.log(removeStandaloneAscii("💲1️⃣"))
-console.log(hasOnlyEmojis("हिन्दी"))
+// console.log(hasOnlyEmojis("हिन्दी")) हिन्दी1#3में
+// console.log(removeNonEmojis(s2))
+// console.log(hasOnlyEmojis(s1))
+// console.log(removeEmojis(s2))
