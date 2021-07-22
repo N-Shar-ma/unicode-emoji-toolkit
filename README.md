@@ -1,2 +1,4 @@
 # unicode-emoji-toolkit
-A lightweight emoji utility library that actually works! Filter out non emojis or vice-versa, and much more
+A lightweight emoji utility library. Filter out non emojis, and more
+
+Work in progress!! 🏗🚧
