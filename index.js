@@ -31,7 +31,7 @@ function hasOnlyEmojis(str) {
 
 // returns a string removing all emoji components from str, and retaining only its non emoji components
 function removeEmojis(str) { 
-    const emojis = removeNonEmojis(str).split("")
+    const emojis = removeNonEmojis(str)
     const strArr = str.split("")
     return strArr.filter((c,i) => !emojis.includes(c) || (i<strArr.length-1 && c.match(standaloneAsciiRegex) && strArr[i+1]!=="\ufe0f")).join("")
 }
