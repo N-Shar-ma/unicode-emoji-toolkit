@@ -1,6 +1,6 @@
 {
   "name": "unicode-emoji-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight, 0 dependency emoji utility library that actually works as you would expect. (Digits are not emojis!) Detect emojis, filter out non emojis or vice-versa, and much more",
   "main": "index.js",
   "scripts": {
