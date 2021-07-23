@@ -1,7 +1,7 @@
 {
   "name": "unicode-emoji-toolkit",
   "version": "1.0.0",
-  "description": "A lightweight emoji utility library that actually works! Filter out non emojis or vice-versa, and much more",
+  "description": "A lightweight, 0 dependency emoji utility library that actually works as you would expect. (Digits are not emojis!) Detect emojis, filter out non emojis or vice-versa, and much more",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -21,7 +21,7 @@
     "lightweight"
   ],
   "author": "Nehal Sharma",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/N-Shar-ma/unicode-emoji-toolkit/issues"
   },
