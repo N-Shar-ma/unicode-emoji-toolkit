@@ -63,4 +63,4 @@ Pull requests for any bug fixes or enhancements are welcome! Do create an issue 
 
 ## License
 
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+[MIT](https://choosealicense.com/licenses/mit/)
