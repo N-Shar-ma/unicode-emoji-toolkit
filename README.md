@@ -1,18 +1,22 @@
 # unicode-emoji-toolkit
 
-**Testing and Polishing in progress 🏗🚧** 
-
-A lightweight emoji utility library that actually works as you would expect! Filter out non emojis or vice-versa, and much more.
+A lightweight, 0 dependency emoji utility library that actually works as you would expect. (Digits are not emojis!) Detect emojis, filter out non emojis or vice-versa, and much more
 
 unicode-emoji-toolkit differs from other libraries that deal with emojis and regex, by being opinionated and **NOT treating digits `[0-9]`, `#` and `*` as emojis**, despite the Unicode Standard officially including them in Emoji characters.
 
 Most people, including me, do not consider these characters to be emojis, and hence this library was born. As you might expect, it still counts #️⃣,*️⃣ and 0️⃣-9️⃣ as emojis
 
-**NPM package coming soon!! 📦📜**
-
 ## Installation
 
-(this section coming soon after NPM package)
+Using npm:
+
+```
+npm install unicode-emoji-toolkit
+```
+or
+```
+npm i unicode-emoji-toolkit
+```
 
 ## Usage
 
@@ -59,7 +63,12 @@ console.log(emj.removeNonEmojis("💜abc1️⃣"))
 
 ## Contributing
 
-Pull requests for any bug fixes or enhancements are welcome! Do create an issue before before making a PR.
+Pull requests for any bug fixes or enhancements are welcome! 
+
+- Do create an issue before before starting work on a PR. 
+- After forking and cloning this repositry to your local machine, run `npm install` to install the developement dependency(jest) for testing.
+- After making the proposed changes locally, add tests and update the usage section in the README if and as required.
+- Be sure to run all tests using `npm run test` before pushing, and make a PR only if all tests pass.
 
 ## License
 
