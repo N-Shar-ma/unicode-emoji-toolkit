@@ -4,7 +4,7 @@
   "description": "A lightweight emoji utility library that actually works! Filter out non emojis or vice-versa, and much more",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/N-Shar-ma/unicode-emoji-toolkit/issues"
   },
-  "homepage": "https://github.com/N-Shar-ma/unicode-emoji-toolkit#readme"
+  "homepage": "https://github.com/N-Shar-ma/unicode-emoji-toolkit#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
