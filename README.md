@@ -68,6 +68,7 @@ Pull requests for any bug fixes or enhancements are welcome!
 - Do create an issue before before starting work on a PR. 
 - After forking and cloning this repositry to your local machine, run `npm install` to install the developement dependency(jest) for testing.
 - After making the proposed changes locally, add tests and update the usage section in the README if and as required.
+- Bump up the version by running `npm version [major | minor | patch]` according to the changes made. Refer to [SemVer](https://semver.org) for more help. 
 - Be sure to run all tests using `npm run test` before pushing, and make a PR only if all tests pass.
 
 ## License
