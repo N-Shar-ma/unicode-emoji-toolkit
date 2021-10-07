@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/N-Shar-ma/unicode-emoji-toolkit#readme",
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "typescript": "^4.4.3"
   }
 }

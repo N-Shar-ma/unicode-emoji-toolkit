@@ -45,13 +45,3 @@ function removeNonEmojis(str) {
 function removeStandaloneAscii(str) { // util
     return str.replace(standaloneAsciiRegex, "");
 }
-
-// testing
-
-// const s1 = "🆗❤🧡💛💲💚💝💜1️⃣"
-// const s2 = "हिन्दी1💜#31️⃣में"
-
-// console.log(hasOnlyEmojis("हिन्दी")) हिन्दी1#3में
-// console.log(removeNonEmojis(s2))
-// console.log(hasOnlyEmojis(s1))
-// console.log(removeEmojis(s2))
